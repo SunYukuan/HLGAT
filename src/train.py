@@ -67,24 +67,24 @@ else:
 
 param.update(nni.get_next_parameter())
 
-if param['dataset_num'] == 0:
-    param['dataset'] = 'texas'
-    param['in_dim'] = 1703
-if param['dataset_num'] == 1:
-    param['dataset'] = 'cornell'
-    param['in_dim'] = 1703
-if param['dataset_num'] == 2:
-    param['dataset'] = 'wisconsin'
-    param['in_dim'] = 1703
-if param['dataset_num'] == 3:
-    param['dataset'] = 'film'
-    param['in_dim'] = 932
-if param['dataset_num'] == 4:
-    param['dataset'] = 'chameleon'
-    param['in_dim'] = 2325
-if param['dataset_num'] == 5:
-    param['dataset'] = 'squirrel'
-    param['in_dim'] = 2089
+# if param['dataset_num'] == 0:
+#     param['dataset'] = 'texas'
+#     param['in_dim'] = 1703
+# if param['dataset_num'] == 1:
+#     param['dataset'] = 'cornell'
+#     param['in_dim'] = 1703
+# if param['dataset_num'] == 2:
+#     param['dataset'] = 'wisconsin'
+#     param['in_dim'] = 1703
+# if param['dataset_num'] == 3:
+#     param['dataset'] = 'film'
+#     param['in_dim'] = 932
+# if param['dataset_num'] == 4:
+#     param['dataset'] = 'chameleon'
+#     param['in_dim'] = 2325
+# if param['dataset_num'] == 5:
+#     param['dataset'] = 'squirrel'
+#     param['in_dim'] = 2089
 
 param['save_mode'] = 0
 # param['seed'] = args.seed
