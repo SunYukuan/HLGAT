@@ -23,17 +23,55 @@ class FALayer(nn.Module):
         nn.init.xavier_normal_(self.WRL.weight, gain=1.414)
         self.p_l=p_l
         self.p_h=p_h
+        # self.relu1 = nn.LeakyReLU(0.2, inplace=False)
+        # self.relu2 = nn.LeakyReLU(0.2, inplace=False)
+        #===============================================================
+        # TEMP1 = torch.randn([1])
+        # self.temp1 = Parameter(torch.tensor(TEMP1))
+        # torch.nn.init.zeros_(self.temp1)
+        # self.temp1.data = torch.randn([1])
+        # #nn.init.xavier_normal_(self.temp1.data, gain=1.414)
 
+        # TEMP2 = torch.randn([1])
+        # self.temp2 = Parameter(torch.tensor(TEMP2))
+        # torch.nn.init.zeros_(self.temp2)
+        # self.temp2.data = torch.randn([1])
+        #nn.init.xavier_normal_(self.temp2.data, gain=1.414)
+        #===============================================================
     def edge_applying(self, edges):
         h2 = torch.cat([edges.dst['h'], edges.src['h']], dim=1)
         _low = self.gate_low(h2)
         g_low = torch.tanh(F.relu(torch.where(_low>0, _low, -self.p_l*_low))).squeeze()
+        #g_low = torch.tanh(F.relu(torch.where(_low>0, _low, -_low))).squeeze()
+        #g_low = F.relu(self.gate_low(h2)).squeeze()
+        #print(g_low)
+        #b = g_low.cpu().detach().numpy() # 数据类型转换
+        #np.save("outputb1.npy",b) # 大功告成
         e_low = g_low * edges.dst['d'] * edges.src['d']
         e_low = self.dropout(e_low)
+        #==========================================================
+        #NegRELU
         _high = self.gate_high(h2)
         g_high = torch.tanh(-F.relu(torch.where(_high>0, _high, -self.p_h*_high))).squeeze()
+        #g_high = torch.tanh(-F.relu(torch.where(_high>0, _high, -_high))).squeeze()
+        #这行效果不大行g_high = -F.relu(torch.where(_high<0, -_high, torch.zeros_like(_high))).squeeze()
+        #a = g_high.cpu().detach().numpy() # 数据类型转换
+        #np.save("outputb2.npy",a)
+        # #print(g_high)
+        # #==========================================================
         e_high = g_high * edges.dst['d'] * edges.src['d']
+        #print( edges.dst['d'], edges.src['d'])
+        # д��excel������
+        # print(g.out_degrees(0)) # ��ѯ�ڵ�IdΪ0�ĳ���
+
+        # print(g.in_degrees(0))  # ��ѯ�ڵ�IdΪ0�����
         b = (edges.dst['d'].cpu()).numpy()
+        #np.savetxt("dst.csv",b)
+        #np.savetxt("dst2.csv",b)
+       # c = (edges.src['d'].cpu()).numpy()
+        #np.savetxt("src.csv",c)
+
+        
         e_high = self.dropout(e_high)
         return {'e_low': e_low, 'm_low': g_low, 'e_high': e_high, 'm_high': g_high}
 
