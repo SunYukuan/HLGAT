@@ -160,7 +160,7 @@ for i in range(20):
         #print("Epoch {:05d} | Loss {:.4f} | Train {:.4f} | Val {:.4f} | Test {:.4f} | Time(s) {:.4f}".format(
             #epoch, loss_val, train_acc, val_acc, test_acc, np.mean(dur)))
 
-    torch.save(net.state_dict(), 'net-{}.pth'.format(i))
+    torch.save(net.state_dict(), param['dataset']+'-net-{}.pth'.format(i))
     #torch.save(net, 'net1.pt')
     print('saveing finished')
     if param['dataset'] in ['cora', 'citeseer', 'pubmed'] or 'syn' in param['dataset']:
