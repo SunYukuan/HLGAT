@@ -61,10 +61,10 @@ class FALayer(nn.Module):
         # #==========================================================
         e_high = g_high * edges.dst['d'] * edges.src['d']
         #print( edges.dst['d'], edges.src['d'])
-        # Ð´µ½excel±í¸ñÖÐ
-        # print(g.out_degrees(0)) # ²éÑ¯½ÚµãIdÎª0µÄ³ö¶È
+        # Ð´ï¿½ï¿½excelï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        # print(g.out_degrees(0)) # ï¿½ï¿½Ñ¯ï¿½Úµï¿½IdÎª0ï¿½Ä³ï¿½ï¿½ï¿½
 
-        # print(g.in_degrees(0))  # ²éÑ¯½ÚµãIdÎª0µÄÈë¶È
+        # print(g.in_degrees(0))  # ï¿½ï¿½Ñ¯ï¿½Úµï¿½IdÎª0ï¿½ï¿½ï¿½ï¿½ï¿½
         b = (edges.dst['d'].cpu()).numpy()
         #np.savetxt("dst.csv",b)
         #np.savetxt("dst2.csv",b)
@@ -86,9 +86,9 @@ class FALayer(nn.Module):
         #return self.g.ndata['z_high']+self.g.ndata['z_low']
         #return self.g.ndata['z_high']
 
-class FAGCN(nn.Module):
+class HLGAT(nn.Module):
     def __init__(self, g, in_dim, hidden_dim, out_dim, dropout, eps, layer_num, p_l, p_h):
-        super(FAGCN, self).__init__()
+        super(HLGAT, self).__init__()
         self.g = g
         self.eps = eps
         self.layer_num = layer_num

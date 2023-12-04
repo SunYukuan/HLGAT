@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import networkx as nx
 from dgl import DGLGraph
 from utils import accuracy, preprocess_data
-from model import FAGCN
+from model import HLGAT 
 import json
 import nni
 
@@ -107,7 +107,7 @@ for i in range(20):
     norm = torch.pow(deg, -0.5)
     g.ndata['d'] = norm
 
-    net = FAGCN(g, features.size()[1], param['hidden'], nclass, param['dropout'], param['eps'], param['layer_num'], param['p_l'], param['p_h']).cuda()
+    net = HLGAT(g, features.size()[1], param['hidden'], nclass, param['dropout'], param['eps'], param['layer_num'], param['p_l'], param['p_h']).cuda()
 
     # create optimizer
     optimizer = torch.optim.Adam(net.parameters(), lr=param['lr'], weight_decay=param['weight_decay'])
