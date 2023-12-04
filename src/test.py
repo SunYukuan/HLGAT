@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import networkx as nx
 from dgl import DGLGraph
 from utils import accuracy, preprocess_data
-from model1 import FAGCN
+from model1 import HLGAT
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', default='chameleon', 
@@ -41,7 +41,7 @@ deg = g.in_degrees().cuda().float().clamp(min=1)
 norm = torch.pow(deg, -0.5)
 g.ndata['d'] = norm
 
-net = FAGCN(g, features.size()[1], args.hidden, nclass, args.dropout, args.eps, args.layer_num, args.p_l, args.p_h).cuda()
+net = HLGAT(g, features.size()[1], args.hidden, nclass, args.dropout, args.eps, args.layer_num, args.p_l, args.p_h).cuda()
 net.load_state_dict(torch.load('data-chameleon__net-283.pth'))
 #net = torch.load('net1.pt')
 net.eval()
