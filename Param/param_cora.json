@@ -1,14 +1,15 @@
 {
   "dataset": "cora",
-  "dropout": 0.6,
+  "dropout": 0.5,
   "train_ratio": 0.48,
   "lr": 0.01,
-  "weight_decay": 0.0005,
+  "weight_decay": 0.00005,
+  "layer_num":2,
   "epochs": 500,
   "hidden":32,
   "p_l":0.1,
   "p_h":0.5,
   "eps":0.8,
-  "layer_num":2,
+  
   "patience":200
 }
