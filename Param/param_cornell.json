@@ -7,7 +7,7 @@
   "layer_num":2,
   "epochs": 500,
   "hidden":32,
-  "p_l":0。9,
+  "p_l":0.9,
   "p_h":0.1,
   "eps":0.9,
   "patience":200
