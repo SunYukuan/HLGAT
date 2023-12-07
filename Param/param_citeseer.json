@@ -1,14 +1,14 @@
 {
   "dataset": "citeseer",
-  "dropout": 0.6,
+  "dropout": 0.7,
   "train_ratio": 0.48,
-  "lr": 0.01,
-  "weight_decay": 0.0005,
+  "lr": 0.005,
+  "weight_decay": 0.001,
   "epochs": 500,
   "hidden":32,
-  "p_l":0.1,
-  "p_h":0.5,
-  "eps":0.8,
+  "p_l":0.5,
+  "p_h":0.1,
+  "eps":0.3,
   "layer_num":2,
   "patience":200
 }
