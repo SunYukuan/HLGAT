@@ -6,9 +6,9 @@
   "weight_decay": 0.0005,
   "epochs": 500,
   "hidden":32,
-  "p_l":0.1,
-  "p_h":0.5,
-  "eps":0.8,
+  "p_l":0.3,
+  "p_h":0.1,
+  "eps":0.7,
   "layer_num":2,
   "patience":200
 }
