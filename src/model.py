@@ -9,9 +9,9 @@ import torch
 import numpy as np
 
 
-class FALayer(nn.Module):
+class HLLayer(nn.Module):
     def __init__(self, g, in_dim, dropout, p_l, p_h):
-        super(FALayer, self).__init__()
+        super(HLLayer, self).__init__()
         self.g = g
         self.dropout = nn.Dropout(dropout)
         self.gate_low = nn.Linear(2 * in_dim, 1)
@@ -55,7 +55,7 @@ class HLGAT(nn.Module):
 
         self.layers = nn.ModuleList()
         for i in range(self.layer_num):
-            self.layers.append(FALayer(self.g, hidden_dim, dropout, p_l, p_h))
+            self.layers.append(HLLayer(self.g, hidden_dim, dropout, p_l, p_h))
 
         self.t1 = nn.Linear(in_dim, hidden_dim)
         self.t2 = nn.Linear(hidden_dim, out_dim)
