@@ -8,7 +8,13 @@ torch=2.0.1
 scipy==1.9.1  
 dgl=1.1.2+cu117  
 # Description
-
++ train.py
+  + main() -- Train a new model for node classification task on the Cora, Citeseer, Pubmed, Texas, Cornell, Film, Chameleon, Squirrel
++ model.py
+  + HLGAT() -- model
++ utils.py
+  + accuracy()
+  + preprocess_data() -- Load data of selected dataset
 # Running the code
 
 # Citation
