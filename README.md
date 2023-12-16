@@ -11,9 +11,10 @@ dgl=1.1.2+cu117
 + train.py
   + main() -- Train a new model for node classification task on the Cora, Citeseer, Pubmed, Texas, Cornell, Film, Chameleon, Squirrel
 + model.py
-  + HLGAT() -- model
+  + HLGAT() -- The Heterogeneous Label-aware Graph Attention Network (HLGAT) model is designed for node classification tasks.
+    It uses graph attention mechanisms for effective feature aggregation.
 + utils.py
-  + accuracy()
+  + accuracy() --The accuracy function calculates the classification accuracy given model logits and true labels.
   + preprocess_data() -- Load data of selected dataset
 # Running the code
 
