@@ -18,6 +18,7 @@ dgl=1.1.2+cu117
   + preprocess_data() -- Load data of selected dataset
 # Running the code
 Training example: 
-$ python train.py --dataset cornell
+
+python train.py --dataset cornell
 # Citation
 The manuscript is under review for Pattern Recognition.
