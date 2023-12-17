@@ -17,6 +17,8 @@ dgl=1.1.2+cu117
   + accuracy() --The accuracy function calculates the classification accuracy given model logits and true labels.
   + preprocess_data() -- Load data of selected dataset
 # Running the code
-
+Training example: 
+```python
+python train.py --dataset cornell
 # Citation
 The manuscript is under review for Pattern Recognition.
