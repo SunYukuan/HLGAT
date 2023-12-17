@@ -27,12 +27,12 @@ class HLLayer(nn.Module):
         h2 = torch.cat([edges.dst['h'], edges.src['h']], dim=1)
         
         _low = self.gate_low(h2)
-        g_low = torch.tanh(F.relu(torch.where(_low>0, _low, -self.p_l*_low))).squeeze()
+        g_low = F.relu(torch.where(_low>0, _low, -self.p_l*_low)).squeeze()
         e_low = g_low * edges.dst['d'] * edges.src['d']
         e_low = self.dropout(e_low)
         
         _high = self.gate_high(h2)
-        g_high = torch.tanh(-F.relu(torch.where(_high>0, _high, -self.p_h*_high))).squeeze()
+        g_high = -F.relu(torch.where(_high>0, _high, -self.p_h*_high)).squeeze()
         e_high = g_high * edges.dst['d'] * edges.src['d']
         b = (edges.dst['d'].cpu()).numpy()
         e_high = self.dropout(e_high)
