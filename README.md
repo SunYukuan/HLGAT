@@ -21,11 +21,11 @@ Training example:
 
 python train.py --dataset cornell
 # Citation
-@article{sun2024high,
-  title={High-frequency and low-frequency dual-channel graph attention network},
-  author={Sun, Yukuan and Duan, Yutai and Ma, Haoran and Li, Yuelong and Wang, Jianming},
-  journal={Pattern Recognition},
-  pages={110795},
-  year={2024},
-  publisher={Elsevier}
+@article{sun2024high,  
+    title={High-frequency and low-frequency dual-channel graph attention network},  
+    author={Sun, Yukuan and Duan, Yutai and Ma, Haoran and Li, Yuelong and Wang, Jianming},  
+    journal={Pattern Recognition},  
+    pages={110795},  
+    year={2024},  
+    publisher={Elsevier}  
 }
